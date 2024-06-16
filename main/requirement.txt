@@ -4,6 +4,7 @@
 
 - Python==3.12.4
 
+
 - openai==0.28
 
 API_KEY valide pour le chatbot.
