@@ -1,0 +1,127 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% trans "Chatbot" %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 60px;
+        }
+        .language-menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .language-menu select {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        .chat-container {
+            margin-top: 20px;
+        }
+        .chat-messages {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .you-message {
+            text-align: right;
+            color: blue;
+        }
+        .answer-message {
+            text-align: left;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">{% trans "Zachee NJILA WOUMBE" %}</a>
+            <div class="language-menu">
+                <form id="language-form" method="GET" class="form-inline">
+                    <select name="lang" class="form-control" onchange="this.form.submit()">
+                        {% for code, name in LANGUAGES %}
+                            <option value="{{ code }}" {% if code == lang %}selected{% endif %}>{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container chat-container">
+        <h1 class="my-4 text-center">{% trans "Chatbot" %}</h1>
+        
+        <!-- Chat Messages -->
+        <ul class="chat-messages" id="chat-messages">
+            <!-- Messages will be dynamically added here -->
+        </ul>
+
+        <!-- User Input Form -->
+        <form id="chat-form" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="user_input">{% trans "Your message" %}</label>
+                <input type="text" class="form-control" id="user_input" name="user_input">
+            </div>
+            <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for handling chatbot interaction -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('chat-form');
+            const messagesContainer = document.getElementById('chat-messages');
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const userMessage = formData.get('user_input');
+                if (!userMessage.trim()) {
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/chatbot/', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    if (!response.ok) {
+                        throw new Error('Failed to get response from server.');
+                    }
+                    const responseData = await response.json();
+                    appendMessage('you', userMessage);
+                    appendMessage('answer', responseData.response);
+                    form.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            });
+
+            function appendMessage(role, content) {
+                const messageElement = document.createElement('li');
+                messageElement.classList.add('message', role + '-message');
+                messageElement.textContent = content;
+                messagesContainer.appendChild(messageElement);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

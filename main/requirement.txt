@@ -1,0 +1,9 @@
+ Ce fichier liste les exigences nécessaires pour ce projets :
+
+- Django==5.0.6
+
+- Python==3.12.4
+
+- openai==0.28
+
+API_KEY valide pour le chatbot.

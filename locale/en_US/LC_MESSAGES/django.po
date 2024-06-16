@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 12:12+0200\n"
+"POT-Creation-Date: 2024-06-16 15:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,6 +43,7 @@ msgid "Articles"
 msgstr "Articles"
 
 #: .\main\templates\main\article_list.html:32
+#: .\main\templates\main\chatbot.html:48
 msgid "Zachee NJILA WOUMBE"
 msgstr ""
 
@@ -55,9 +56,22 @@ msgstr ""
 msgid "Publication Date"
 msgstr "Publish at"
 
+#: .\main\templates\main\article_list.html:70
+#: .\main\templates\main\chatbot.html:8 .\main\templates\main\chatbot.html:63
+msgid "Chatbot"
+msgstr ""
+
 #: .\main\templates\main\base.html:14
 msgid "Languages"
 msgstr "LANGUAGES"
+
+#: .\main\templates\main\chatbot.html:74
+msgid "Your message"
+msgstr ""
+
+#: .\main\templates\main\chatbot.html:77
+msgid "Send"
+msgstr ""
 
 #~ msgid "Author"
 #~ msgstr "Author"

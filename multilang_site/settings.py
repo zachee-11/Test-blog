@@ -144,3 +144,5 @@ LOCALE_PATHS = [
 ]
 
 LANGUAGE_COOKIE_NAME = 'django_language'
+
+OPENAI_API_KEY = os.getenv("sk-proj-qZz6H6Dq9TJyK8cAc7BVT3BlbkFJdtnJyo2GnRDa8XoVBHpa")
