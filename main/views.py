@@ -9,7 +9,7 @@ from openai.error import RateLimitError
 
 import time
 
-openai.api_key = "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"
+openai.api_key = settings.OPENAI_API_KEY
 
 def article_list(request):
     articles = Article.objects.all()
