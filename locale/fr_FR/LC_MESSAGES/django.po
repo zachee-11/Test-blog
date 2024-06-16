@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-16 12:12+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\main\templates\main\article_detail.html:7
+#: .\main\templates\main\article_detail.html:47
+#, fuzzy
+#| msgid "Articles"
+msgid "Article Detail"
+msgstr "Détail de l'Articles"
+
+#: .\main\templates\main\article_detail.html:32
+#: .\main\templates\main\base.html:7
+msgid "My Site"
+msgstr "Zachee NJILA WOUMBE"
+
+#: .\main\templates\main\article_detail.html:54
+msgid "Published on"
+msgstr "Publié le"
+
+#: .\main\templates\main\article_detail.html:54
+msgid "by"
+msgstr "par"
+
+#: .\main\templates\main\article_list.html:7
+#: .\main\templates\main\article_list.html:47
+msgid "Articles"
+msgstr "Articles"
+
+#: .\main\templates\main\article_list.html:32
+msgid "Zachee NJILA WOUMBE"
+msgstr ""
+
+#: .\main\templates\main\article_list.html:56
+#, python-format
+msgid "%(article.content)s"
+msgstr ""
+
+#: .\main\templates\main\article_list.html:59
+msgid "Publication Date"
+msgstr "Date de publication"
+
+#: .\main\templates\main\base.html:14
+msgid "Languages"
+msgstr "Langages"
+
+#~ msgid "Auteur"
+#~ msgstr "Auteur"
+
+#~ msgid "Change language"
+#~ msgstr "QQQIIIIIIIIIIIIIII"
+
+#~ msgid "Changer la langue"
+#~ msgstr "IIIIIIIIIIIIIIIIIII"

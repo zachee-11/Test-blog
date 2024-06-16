@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% trans "My Site" %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn">{% trans "Languages" %}</button>
+                <div class="dropdown-content">
+                    <a href="/?lang=fr"><img src="{% static 'images/flags/fr.png' %}" alt="French"> Français</a>
+                    <a href="/?lang=en"><img src="{% static 'images/flags/en.png' %}" alt="English"> English</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
